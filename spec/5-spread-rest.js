@@ -40,11 +40,11 @@ describe('Spread Rest', function() {
 
         const p2 = {...p1, enabled: false};
 
-        expect(p1 == p2)// toBeTruthy() toBeFalsy()
-        expect(p1.address == p2.address)// toBeTruthy() toBeFalsy()
-        expect(p2.name).toBe(/* ??? */);
-        expect(p2.age).toBe(/* ??? */);
-        expect(p2.enabled).toBe(/* ??? */);
+        since('error').expect(p1 == p2).toBe()// remplacer toBe() par toBeTruthy() toBeFalsy()
+        since('error').expect(p1.address == p2.address).toBe()// remplacer toBe() par toBeTruthy() toBeFalsy()
+        since('error').expect(p2.name).toBe(/* ??? */);
+        since('error').expect(p2.age).toBe(/* ??? */);
+        since('error').expect(p2.enabled).toBe(/* ??? */);
     });
 
     it('rest array', function() {
@@ -61,9 +61,9 @@ describe('Spread Rest', function() {
             return args;
         }
 
-        expect(a).toBe(/* ??? */);
-        expect(rest).toEqual(/* ??? */);
-        expect(fn()).toEqual(/* ??? */);
+        since('error').expect(a).toBe(/* ??? */);
+        since('error').expect(rest).toEqual(/* ??? */);
+        since('error').expect(fn()).toEqual(/* ??? */);
     });
 
     it('rest join', function() {
@@ -71,8 +71,8 @@ describe('Spread Rest', function() {
             return args.join(delimiter);
         }
 
-        expect(join('-', 1, 2, 4)).toBe(/* ??? */);
-        expect(join(',', 'john', 'mike', 'richard', 'paul')).toEqual(/* ??? */);
+        since('error').expect(join('-', 1, 2, 4)).toBe(/* ??? */);
+        since('error').expect(join(',', 'john', 'mike')).toEqual(/* ??? */);
     });
 
     it('rest object', function() {
@@ -89,9 +89,8 @@ describe('Spread Rest', function() {
         // TODO : compléter la ligne suivante
         // const ??? = p1;
 
-        expect(address).toBe(p1.address);
         expect(restP1).toEqual({name: 'john', age: 10, enabled: true});
-        
+        expect(address).toBe(p1.address);
     });
 
 });

@@ -42,8 +42,6 @@ describe('Destructuring ES6', function() {
         expect(sumFirstTwoValues([3])).toBe(3);
         expect(sumFirstTwoValues([3, 4])).toBe(7);
         expect(sumFirstTwoValues([6, 2, 5])).toBe(8);
-
-        const [{ prop: x } = { prop: 123 }] = [];
     });
 
     it('destructuring string', function() {

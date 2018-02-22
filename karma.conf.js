@@ -3,7 +3,7 @@ module.exports = function(config) {
     reporters: ['progress', 'html', 'live-html'],
     preprocessors: {
       'src/**/*.js': ['babel'],
-      'spec/**/!(6-this).js': ['babel'],
+      'spec/**/!(6-this).js': ['babel', 'sourcemap'],
     },
     babelPreprocessor: {
       options: {
@@ -11,7 +11,8 @@ module.exports = function(config) {
           "plugins": [
             "transform-es2015-modules-umd", 
             "transform-object-rest-spread"
-          ]
+          ],
+          sourceMap: 'inline'
       }
     },
 	

@@ -17,9 +17,9 @@ describe('other', () => {
 
             const fn = add.bind(null, 2);
 
-            expect(fn(0)).toBe(/* ??? */);
-            expect(fn(3)).toBe(/* ??? */);
-            expect(fn(5)).toBe(/* ??? */);
+            since('error').expect(fn(0)).toBe(/* ??? */);
+            since('error').expect(fn(3)).toBe(/* ??? */);
+            since('error').expect(fn(5)).toBe(/* ??? */);
         });
 
         it('map reduce', () => {
