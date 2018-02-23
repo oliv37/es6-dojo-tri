@@ -1,15 +1,16 @@
 // TODO : ajouter les exports nécéssaires pour passer les tests du fichier 2-export.js
+export { substract } from '../src/math.js';
 
-const height = 120;
+export const height = 120;
 
-function turnLeft() {
+export function turnLeft() {
     return "Turn left";
 }
 
-function turnRight() {
+export function turnRight() {
     return "Turn right";
 }
 
-function hello() {
+export default function hello() {
     return "hello";
 }

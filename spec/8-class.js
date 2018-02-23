@@ -6,8 +6,8 @@ describe('class', () => {
             const A = class { };
             class B {}
 
-            since('error').expect(typeof A).toBe(/* ??? */);
-            since('error').expect(typeof B).toBe(/* ??? */);
+            since('error').expect(typeof A).toBe('function');
+            since('error').expect(typeof B).toBe('function');
         });
 
         it('declaration', () => {
@@ -27,12 +27,12 @@ describe('class', () => {
 
             const t = new Test();
           
-            since('error').expect(typeof Test).toBe(/* ??? */);
-            since('error').expect(t.a).toBe(/* ??? */);
-            since('error').expect(t.b).toBe(/* ??? */);
+            since('error').expect(typeof Test).toBe('function');
+            since('error').expect(t.a).toBe(3);
+            since('error').expect(t.b).toBe(4);
 
             t.foo = 5;
-            since('error').expect(t.a).toBe(/* ??? */);
+            since('error').expect(t.a).toBe(5);
 
         });
 

@@ -3,8 +3,8 @@ import { add } from '../src/math.js';
 describe('Spread Rest', function() {
 
     it('spread examples', function() {
-        since('error').expect([1, ...[2, 3], 4]).toEqual(/* ??? */);
-        since('error').expect(Math.max(1, ...[5, 10], 8, 3)).toBe(/* ??? */);
+        since('error').expect([1, ...[2, 3], 4]).toEqual([1,2,3,4]);
+        since('error').expect(Math.max(1, ...[5, 10], 8, 3)).toBe(10);
     });
     
     it('spread array', function() {
@@ -13,7 +13,7 @@ describe('Spread Rest', function() {
         const arr3 = ['paul'];
 
         // TODO : compléter la ligne suivante
-        // const all = ...
+        const all = [...arr1, ...arr2, ...arr3];
         
         expect(all).toEqual(['john', 'jack', 'jim', 'sandy', 'mary', 'paul']);
     });
@@ -22,7 +22,7 @@ describe('Spread Rest', function() {
         const numbers = [4, 3, 10, 4, 2, 1];
 
         // TODO : compléter la ligne suivante (indice: utiliser la fonction Math.min)
-        // const min = ...
+        const min = Math.min(...numbers);
 
         expect(min).toBe(1);
     });
@@ -40,11 +40,12 @@ describe('Spread Rest', function() {
 
         const p2 = {...p1, enabled: false};
 
-        since('error').expect(p1 == p2).toBe()// remplacer toBe() par toBeTruthy() toBeFalsy()
-        since('error').expect(p1.address == p2.address).toBe()// remplacer toBe() par toBeTruthy() toBeFalsy()
-        since('error').expect(p2.name).toBe(/* ??? */);
-        since('error').expect(p2.age).toBe(/* ??? */);
-        since('error').expect(p2.enabled).toBe(/* ??? */);
+        // :)
+        since('error').expect(p1 === p2).toBeFalsy();// remplacer toBe() par toBeTruthy() toBeFalsy()
+        since('error').expect(p1.address == p2.address).toBeTruthy();// remplacer toBe() par toBeTruthy() toBeFalsy()
+        since('error').expect(p2.name).toBe('john');
+        since('error').expect(p2.age).toBe(10);
+        since('error').expect(p2.enabled).toBe(false);
     });
 
     it('rest array', function() {
@@ -61,9 +62,9 @@ describe('Spread Rest', function() {
             return args;
         }
 
-        since('error').expect(a).toBe(/* ??? */);
-        since('error').expect(rest).toEqual(/* ??? */);
-        since('error').expect(fn()).toEqual(/* ??? */);
+        since('error').expect(a).toBe(1);
+        since('error').expect(rest).toEqual([2,3,4,5]);
+        since('error').expect(fn()).toEqual([]);
     });
 
     it('rest join', function() {
@@ -71,8 +72,8 @@ describe('Spread Rest', function() {
             return args.join(delimiter);
         }
 
-        since('error').expect(join('-', 1, 2, 4)).toBe(/* ??? */);
-        since('error').expect(join(',', 'john', 'mike')).toEqual(/* ??? */);
+        since('error').expect(join('-', 1, 2, 4)).toBe('1-2-4');
+        since('error').expect(join(',', 'john', 'mike')).toEqual('john,mike');
     });
 
     it('rest object', function() {
@@ -87,7 +88,7 @@ describe('Spread Rest', function() {
         };
 
         // TODO : compléter la ligne suivante
-        // const ??? = p1;
+        const { address, ...restP1 } = p1;
 
         expect(restP1).toEqual({name: 'john', age: 10, enabled: true});
         expect(address).toBe(p1.address);

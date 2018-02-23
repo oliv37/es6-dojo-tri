@@ -1,5 +1,7 @@
-export function add(a, b, c) {
-    return a + b + c;
+export function add(...args) {
+    return args.reduce(function(acc, curr) {
+        return acc + curr;
+    });
 }
 
 export function substract(a, b) {

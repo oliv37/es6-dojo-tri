@@ -1,4 +1,6 @@
 // TODO : Importer les fonctions présentes dans src/math.js pour faire passer les tests
+import { substract, add as addWith3Params } from '../src/math.js';
+import sayHello from '../src/math.js';
 
 describe('Import ES6', function() {
     

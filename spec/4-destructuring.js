@@ -4,7 +4,7 @@ describe('Destructuring ES6', function() {
         const iterable = ['john', 'jack', 'jim'];
 
         // TODO : à compléter
-        // const ...
+        const [john,,jim] = iterable;
         
         expect(john).toBe('john');
         expect(jim).toBe('jim');
@@ -18,7 +18,7 @@ describe('Destructuring ES6', function() {
             height: 3,
         };
 
-        // const ...
+        const { width, height } = rectangle;
         
         expect(width).toBe(10);
         expect(height).toBe(3);
@@ -31,12 +31,19 @@ describe('Destructuring ES6', function() {
         };
 
         // TODO : écrire une fonction toString pour faire passer le test suivant
+        function toString({name, age}) {
+            return `${name.toLowerCase()} is ${age}`;
+        }
 
-        expect(toString(obj)).toBe('Jim is 20');
+        // :)
+        expect(toString(obj)).toBe('jim is 20');
     });
 
     it('destructuring array with default values', function() {
         // TODO : écrire une fonction sumFirstTwoValues qui aditionne les deux premiers entiers du tableau
+        function sumFirstTwoValues([a = 0, b = 0]) {
+            return a + b;
+        }
 
         expect(sumFirstTwoValues([])).toBe(0);
         expect(sumFirstTwoValues([3])).toBe(3);
@@ -46,14 +53,14 @@ describe('Destructuring ES6', function() {
 
     it('destructuring string', function() {
         // TODO : compléter la ligne suivante pour faire passer le test
-        // const ... = 'abc';
+        const [firstLetter] = 'abc';
 
         expect(firstLetter).toBe('a');
     });
 
     it('destructuring with reference', function() {
         // TODO : compléter la fonction suivante pour faire passer le test
-        function sumWithSpecialBehavior(/* ??? */) {
+        function sumWithSpecialBehavior([x = 0, y = x]) {
             return x + y;
         }
 
@@ -66,7 +73,7 @@ describe('Destructuring ES6', function() {
 
     it('destructuring with default values (difficult)', function() {
         // TODO : compléter la fonction suivante pour faire passer le test
-        function getNameOfFirstPerson([/* ??? */]) {
+        function getNameOfFirstPerson([{ name = '' } = { name: '' }]) {
             return name;
         }
 

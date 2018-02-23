@@ -13,9 +13,11 @@ describe('This', function() {
             return this;
         }
 
-        since('error').expect(global === window).toBe(); // remplacer toBe() par .toBeTruthy(); ou .toBeFalsy();
-        since('error').expect(obj.getThis() === window).toBe(); //.toBeTruthy(); .toBeFalsy();
-        since('error').expect(func() === window).toBe(); //.toBeTruthy(); .toBeFalsy();
+        since('error').expect(global === window).toBeTruthy(); // remplacer toBe() par .toBeTruthy(); ou .toBeFalsy();
+        since('error').expect(obj.getThis() === window).toBeFalsy(); //.toBeTruthy(); .toBeFalsy();
+        // :)
+        since('error').expect(obj.getThis() === obj).toBeTruthy(); //.toBeTruthy(); .toBeFalsy();
+        since('error').expect(func() === window).toBeTruthy(); //.toBeTruthy(); .toBeFalsy();
     });
 
     it('This - Object', function() {
@@ -36,9 +38,9 @@ describe('This', function() {
             }
         }
 
-        since('error').expect(obj.myMethod()).toBe(/* ??? */);
-        since('error').expect(obj.getA()).toBe(/* ??? */);
-        since('error').expect(obj.propA).toBe(/* ??? */);
+        since('error').expect(obj.myMethod()).toBe(undefined);
+        since('error').expect(obj.getA()).toBe(3);
+        since('error').expect(obj.propA).toBe(3);
     });
 
     it('This - Call', function() {
@@ -52,9 +54,9 @@ describe('This', function() {
 
         fun.call(obj, 10);
 
-        since('error').expect(obj.a).toBe(/* ??? */);
-        since('error').expect(obj.b).toBe(/* ??? */);
-        since('error').expect(obj.c).toBe(/* ??? */);
+        since('error').expect(obj.a).toBe(7);
+        since('error').expect(obj.b).toBe(4);
+        since('error').expect(obj.c).toBe(10);
     });
 
     it('This - Bind', function() {
@@ -69,10 +71,10 @@ describe('This', function() {
         var func1 = addValueToA.bind(obj);
         var func2 = addValueToA.bind(obj, 7);
 
-        since('error').expect(addValueToA(3)).toBe(/* ??? */);
-        since('error').expect(func1(3)).toBe(/* ??? */);
-        since('error').expect(func2()).toBe(/* ??? */);
-        since('error').expect(func2(5)).toBe(/* ??? */);
+        since('error').expect(addValueToA(3)).toBe(9);
+        since('error').expect(func1(3)).toBe(6);
+        since('error').expect(func2()).toBe(10);
+        since('error').expect(func2(5)).toBe(10);
 
         window.a = undefined;
     });
