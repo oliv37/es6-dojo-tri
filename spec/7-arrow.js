@@ -13,12 +13,12 @@ describe('Arrow function', () => {
         // const isOdd = ... 
         const transform = (arr, filterFn, mapFn) => arr.filter(filterFn).map(mapFn);
 
-        since('error').expect(add2(4)).toBe(/* ??? */);
-        since('error').expect(add2(7)).toBe(/* ??? */);
+        since('error add2(4)').expect(add2(4)).toBe(/* ??? */);
+        since('error add2(7)').expect(add2(7)).toBe(/* ??? */);
         expect(isOdd(1)).toBeTruthy();
         expect(isOdd(9)).toBeTruthy();
         expect(isOdd(2)).toBeFalsy();
-        since('error').expect(transform([1, 4, 7], isOdd, add2)).toEqual(/* ??? */);
+        since('error transform').expect(transform([1, 4, 7], isOdd, add2)).toEqual(/* ??? */);
     });
 
     it('literal object', () => {
@@ -27,14 +27,12 @@ describe('Arrow function', () => {
         since('error').expect(func()).toEqual(/* ??? */);
     });
 
-    it('multi lines', () => {
+    it('ternary', () => {
         const func = (a, b) => a > b ? a : b;
 
-        since('error').expect(func(2, 3)).toBe(/* ??? */);
-        since('error').expect(func(2, 3)).toBe(/* ??? */);
-        
-        since('error').expect(func(4, 4)).toBe(/* ??? */);
-        since('error').expect(func(4, 4)).toBe(/* ??? */);
+        since('error 2 3').expect(func(2, 3)).toBe(/* ??? */);
+        since('error 4 4').expect(func(4, 4)).toBe(/* ??? */);
+        since('error 9 7').expect(func(9, 7)).toBe(/* ??? */);
     })
 
     it('destructuring', () => {
@@ -50,9 +48,9 @@ describe('Arrow function', () => {
     it('rest', () => {
         const sum = (...numbers) => numbers.reduce((acc, curr) => acc + curr);
 
-        since('error').expect(sum(1, 2, 5, 8)).toBe(/* ??? */);
-        since('error').expect(sum(1, 2)).toBe(/* ??? */);
-        since('error').expect(sum(1, 1, 1, 2, 6)).toBe(/* ??? */);
+        since('error sum(1, 2, 5, 8)').expect(sum(1, 2, 5, 8)).toBe(/* ??? */);
+        since('error sum(1, 2)').expect(sum(1, 2)).toBe(/* ??? */);
+        since('error (sum(1, 1, 1, 2, 6)').expect(sum(1, 1, 1, 2, 6)).toBe(/* ??? */);
     });
 
     it('closure', () => {
@@ -61,13 +59,13 @@ describe('Arrow function', () => {
         const fn1 = makeAdd(2);
         const fn2 = makeAdd(5);
 
-        since('error').expect(fn1(4)).toBe(/* ??? */);
-        since('error').expect(fn1(5)).toBe(/* ??? */);
-        since('error').expect(fn1()).toBe(/* ??? */);
+        since('error fn1(4)').expect(fn1(4)).toBe(/* ??? */);
+        since('error fn1(5)').expect(fn1(5)).toBe(/* ??? */);
+        since('error fn1()').expect(fn1()).toBe(/* ??? */);
 
-        since('error').expect(fn2(4)).toBe(/* ??? */);
-        since('error').expect(fn2(1)).toBe(/* ??? */);
-        since('error').expect(fn2()).toBe(/* ??? */);
+        since('error fn2(4)').expect(fn2(4)).toBe(/* ??? */);
+        since('error fn2(1)').expect(fn2(1)).toBe(/* ??? */);
+        since('error fn2()').expect(fn2()).toBe(/* ??? */);
     });
 
     it('This - Object- 1', function() {
@@ -102,10 +100,10 @@ describe('Arrow function', () => {
             }
         };
 
-        since('error').expect(obj === obj.func()).toBe()// .toBeTruthy(); .toBeFalsy();
-        since('error').expect(obj.func2()).toBe(/* ??? */);
-        since('error').expect(obj.func3()).toBe(/* ??? */);
-        since('error').expect(obj.func4()).toBe(/* ??? */);
+        since('error obj === obj.func()').expect(obj === obj.func()).toBe()// .toBeTruthy(); .toBeFalsy();
+        since('error obj.func2()').expect(obj.func2()).toBe(/* ??? */);
+        since('error obj.func3()').expect(obj.func3()).toBe(/* ??? */);
+        since('error obj.func4()').expect(obj.func4()).toBe(/* ??? */);
     });
 
 

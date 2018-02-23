@@ -3,8 +3,8 @@ import { add } from '../src/math.js';
 describe('Spread Rest', function() {
 
     it('spread examples', function() {
-        since('error').expect([1, ...[2, 3], 4]).toEqual(/* ??? */);
-        since('error').expect(Math.max(1, ...[5, 10], 8, 3)).toBe(/* ??? */);
+        since('error ...').expect([1, ...[2, 3], 4]).toEqual(/* ??? */);
+        since('error max').expect(Math.max(1, ...[5, 10], 8, 3)).toBe(/* ??? */);
     });
     
     it('spread array', function() {
@@ -40,11 +40,11 @@ describe('Spread Rest', function() {
 
         const p2 = {...p1, enabled: false};
 
-        since('error').expect(p1 == p2).toBe()// remplacer toBe() par toBeTruthy() toBeFalsy()
-        since('error').expect(p1.address == p2.address).toBe()// remplacer toBe() par toBeTruthy() toBeFalsy()
-        since('error').expect(p2.name).toBe(/* ??? */);
-        since('error').expect(p2.age).toBe(/* ??? */);
-        since('error').expect(p2.enabled).toBe(/* ??? */);
+        since('error p1 === p2').expect(p1 === p2).toBe()// remplacer toBe() par toBeTruthy() toBeFalsy()
+        since('error p1.address === p2.address').expect(p1.address === p2.address).toBe()// remplacer toBe() par toBeTruthy() toBeFalsy()
+        since('error p2.name').expect(p2.name).toBe(/* ??? */);
+        since('error p2.age').expect(p2.age).toBe(/* ??? */);
+        since('error p2.enabled').expect(p2.enabled).toBe(/* ??? */);
     });
 
     it('rest array', function() {
@@ -61,9 +61,9 @@ describe('Spread Rest', function() {
             return args;
         }
 
-        since('error').expect(a).toBe(/* ??? */);
-        since('error').expect(rest).toEqual(/* ??? */);
-        since('error').expect(fn()).toEqual(/* ??? */);
+        since('error a').expect(a).toBe(/* ??? */);
+        since('error rest').expect(rest).toEqual(/* ??? */);
+        since('error fn').expect(fn()).toEqual(/* ??? */);
     });
 
     it('rest join', function() {
@@ -71,8 +71,8 @@ describe('Spread Rest', function() {
             return args.join(delimiter);
         }
 
-        since('error').expect(join('-', 1, 2, 4)).toBe(/* ??? */);
-        since('error').expect(join(',', 'john', 'mike')).toEqual(/* ??? */);
+        since('error -').expect(join('-', 1, 2, 4)).toBe(/* ??? */);
+        since('error ,').expect(join(',', 'john', 'mike')).toEqual(/* ??? */);
     });
 
     it('rest object', function() {

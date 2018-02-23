@@ -15,7 +15,7 @@ describe('Const-Let ES6', function() {
             const toto = 'toto';
         }
         
-        expect(toto).toBe(/* ??? */);
+        since('error').expect(toto).toBe(/* ??? */);
     });
 
     it('if block with let', function() {
@@ -25,7 +25,7 @@ describe('Const-Let ES6', function() {
             let toto = 'toto';
         }
         
-        expect(toto).toBe(/* ??? */);
+        since('error').expect(toto).toBe(/* ??? */);
     });
 
     it('for block with var', function() {
@@ -35,8 +35,8 @@ describe('Const-Let ES6', function() {
             var j = i;
         }
 
-        since('error').expect(i).toBe(/* ??? */);
-        since('error').expect(j).toBe(/* ??? */);
+        since('error i').expect(i).toBe(/* ??? */);
+        since('error j').expect(j).toBe(/* ??? */);
     });
     
     it('for block with let', function() {
@@ -46,8 +46,8 @@ describe('Const-Let ES6', function() {
             const j = i;
         }
 
-        since('error').expect(i).toBe(/* ??? */);
-        since('error').expect(j).toBe(/* ??? */);
+        since('error i').expect(i).toBe(/* ??? */);
+        since('error j').expect(j).toBe(/* ??? */);
     });
 
     it('const object', function() {

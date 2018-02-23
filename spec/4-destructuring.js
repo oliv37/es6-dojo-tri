@@ -32,7 +32,7 @@ describe('Destructuring ES6', function() {
 
         // TODO : écrire une fonction toString pour faire passer le test suivant
 
-        expect(toString(obj)).toBe('Jim is 20');
+        expect(toString(obj)).toBe('jim is 20');
     });
 
     it('destructuring array with default values', function() {

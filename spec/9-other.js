@@ -44,10 +44,10 @@ describe('other', () => {
         });
 
         it('count words', () => {
-            // TODO : écrire une fonction countWords qui prend en paramètre un tableau de chaînes de caractères
+            // TODO : écrire une fonction countWords qui prend en paramètre n nombre indéterminé de chaînes de caractères
             // la fonction doit retourner un objet qui contient le nombre de d'occurences de chaque mot.
 
-            expect(countwords(['Apple', 'Banana', 'Apple', 'Durian', 'Durian', 'Durian'])).toEqual({
+            expect(countwords('Apple', 'Banana', 'Apple', 'Durian', 'Durian', 'Durian')).toEqual({
                 Apple: 2,
                 Banana: 1,
                 Durian: 3
