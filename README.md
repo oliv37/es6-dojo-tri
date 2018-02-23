@@ -47,15 +47,15 @@ func(); // affiche 'export default from File1'
 if (true) {
   const a = 3;
   console.log(a); // 3
-  // on ne peut écrire : a = 4; 
+  // on ne peut pas écrire : a = 4; 
 }
 
-console.log(a); // undefined
+console.log(window.a); // undefined
 
 for(let i of [1, 2, 3, 4]) {
 	...
 }
-console.log(i); // undefined
+console.log(i); // Reference error : i is not defined
 ```
 ### Destructuring
 
@@ -84,44 +84,48 @@ console.log(d); // 6
 *Référence une autre variable*
 ```javascript
 const arr = [3, 10, 5];
-const [a, ,b = a] = arr;
+const [a, ,c = a, d = a] = arr;
 
 console.log(a); // 3
-console.log(b); // 3
+console.log(c); // 5
+console.log(d); // 3
 ```
 
 \
 *Avec des objets*
 ```javascript
-const obj= {
-  name: 'john'
+const obj = {
+  firstName: 'john',
   age: 10
 };
-const { name } = obj;
 
-console.log(name); // john
+const { firstName } = obj;
+
+console.log(firstName); // john
 ```
 
 
 ```javascript
 const obj= {
-  name: 'john'
+  firstName: 'john',
   age: 10
 };
-const { name: s } = obj;
 
-console.log(name); // undefined
+const { firstName: s } = obj;
+
+
 console.log(s); // john
+console.log(firstName); // not defined
 ```
 
 ```javascript
 const obj= {
-  name: 'john',
+  firstName: 'john',
   age: 10
 };
 
-function printName({ name }) {
-  console.log(name);
+function printName({ firstName }) {
+  console.log(firstName);
 }
 printName(obj); // john
 ```
@@ -224,7 +228,7 @@ La valeur de `this' dépend du contexte d'exécution de la fonction
 var obj = {
   a: 2,
   func: function() {
-	return this.a;
+	  return this.a;
   }
 };
 
