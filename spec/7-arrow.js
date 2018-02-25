@@ -10,6 +10,7 @@ describe('Arrow function', () => {
         
         const add2 = x => x + 2;
         // TODO : compléter la ligne suivante en utilisant une arrow function
+        // (isOdd renvoie true si le chiffre est imparair, false sinon)
         const isOdd = n => n % 2; 
         const transform = (arr, filterFn, mapFn) => arr.filter(filterFn).map(mapFn);
 

@@ -2,6 +2,16 @@ import { add } from '../src/math.js';
 
 describe('Spread Rest', function() {
 
+    it('default parameters', function() {
+        function f(x, y= 3) {
+            return x + y;
+        }
+
+        expect(f(0)).toEqual(3);
+        expect(f(2)).toEqual(5);
+        expect(f(3, 4)).toEqual(7);
+    });
+
     it('spread examples', function() {
         since('error').expect([1, ...[2, 3], 4]).toEqual([1,2,3,4]);
         since('error').expect(Math.max(1, ...[5, 10], 8, 3)).toBe(10);
@@ -25,27 +35,6 @@ describe('Spread Rest', function() {
         const min = Math.min(...numbers);
 
         expect(min).toBe(1);
-    });
-
-    it('spread object', function() {
-        const p1 = {
-            name: 'john',
-            age: 10,
-            address: {
-                town: 'paris',
-                zip: '75002'
-            },
-            enabled: true
-        };
-
-        const p2 = {...p1, enabled: false};
-
-        // :)
-        since('error').expect(p1 === p2).toBeFalsy();// remplacer toBe() par toBeTruthy() toBeFalsy()
-        since('error').expect(p1.address == p2.address).toBeTruthy();// remplacer toBe() par toBeTruthy() toBeFalsy()
-        since('error').expect(p2.name).toBe('john');
-        since('error').expect(p2.age).toBe(10);
-        since('error').expect(p2.enabled).toBe(false);
     });
 
     it('rest array', function() {
@@ -74,24 +63,6 @@ describe('Spread Rest', function() {
 
         since('error').expect(join('-', 1, 2, 4)).toBe('1-2-4');
         since('error').expect(join(',', 'john', 'mike')).toEqual('john,mike');
-    });
-
-    it('rest object', function() {
-        const p1 = {
-            name: 'john',
-            age: 10,
-            address: {
-                town: 'paris',
-                zip: '75002'
-            },
-            enabled: true
-        };
-
-        // TODO : compléter la ligne suivante
-        const { address, ...restP1 } = p1;
-
-        expect(restP1).toEqual({name: 'john', age: 10, enabled: true});
-        expect(address).toBe(p1.address);
     });
 
 });

@@ -21,7 +21,7 @@ describe('Const-Let ES6', function() {
     it('if block with let', function() {
         var toto = "test";
 
-        if (true) {
+        {
             let toto = 'toto';
         }
         
@@ -37,6 +37,44 @@ describe('Const-Let ES6', function() {
 
         since('error').expect(i).toBe(3);
         since('error').expect(j).toBe(3);
+    });
+
+    it('for block with let and function', function() {
+        const arr = [];
+        
+        for (let i = 0; i <= 2; i++) {
+            arr[i] = function () { return i * 2 }
+        }
+        
+        expect(arr[0]()).toBe(0);
+        expect(arr[1]()).toBe(2);
+        expect(arr[2]()).toBe(4);
+    });
+
+    it('for block with var and function', function() {
+        const arr = [];
+
+        for (var i = 0; i <= 2; i++) {
+            arr[i] = function () { return i * 2 }
+        }
+
+        expect(arr[0]()).toBe(6);
+        expect(arr[1]()).toBe(6);
+        expect(arr[2]()).toBe(6);
+    });
+
+    it('for block with let declaration outside for loop', function() {
+        const arr = [];
+        
+        let i;
+
+        for (i = 0; i <= 2; i++) {
+            arr[i] = function () { return i * 2 }
+        }
+        
+        since('error arr[0]').expect(arr[0]()).toBe(6);
+        since('error arr[1]').expect(arr[1]()).toBe(6);
+        since('error arr[2]').expect(arr[2]()).toBe(6);
     });
     
     it('for block with let', function() {
