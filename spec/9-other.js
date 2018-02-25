@@ -14,24 +14,24 @@ describe('other', () => {
             const obj = { a: 2, b: 4 };
 
             const obj2 = Object.assign({}, obj);
-            since('error obj === obj2').expect(obj === obj2).toBeFalsy();
-            since('error obj2["a"]').expect(obj2['a']).toBe(2);
-            since('error obj2.b').expect(obj2.b).toBe(4);
+            since('error obj === obj2').expect(obj === obj2).toBe();// .toBeTruthy(); .toBeFalsy();
+            since('error obj2["a"]').expect(obj2['a']).toBe(/* ??? */);
+            since('error obj2.b').expect(obj2.b).toBe(/* ??? */);
 
             const obj3 = Object.assign({}, obj, {a: 3});
 
-            since('error obj3["a"]').expect(obj3['a']).toBe(3);
-            since('error obj3["b"]').expect(obj3['b']).toBe(4);
+            since('error obj3["a"]').expect(obj3['a']).toBe(/* ??? */);
+            since('error obj3["b"]').expect(obj3['b']).toBe(/* ??? */);
 
             const a = 'a';
             const obj4 = Object.assign({}, {a: 3}, obj);
-            since('error obj4[a]').expect(obj4[a]).toBe(2);
-            since('error obj4["b"]').expect(obj4['b']).toBe(4);
+            since('error obj4[a]').expect(obj4[a]).toBe(/* ??? */);
+            since('error obj4["b"]').expect(obj4['b']).toBe(/* ??? */);
 
             const obj5 = Object.assign(obj, {a: 3});
-            since('error obj === obj5').expect(obj === obj5).toBeTruthy();
-            since('error obj5.a').expect(obj5.a).toBe(3);
-            since('error obj5["b"]').expect(obj5['b']).toBe(3);
+            since('error obj === obj5').expect(obj === obj5).toBe();// .toBeTruthy(); .toBeFalsy();
+            since('error obj5.a').expect(obj5.a).toBe(/* ??? */);
+            since('error obj5["b"]').expect(obj5['b']).toBe(/* ??? */);
         });
 
         it('bind', () => {
