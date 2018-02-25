@@ -421,5 +421,7 @@ maMap.get(fonctionClé);  // "valeur associée à fonctionClé"
 ### Liens
 
 http://mikelambert.me/es6
+
 http://es6-features.org
+
 https://kangax.github.io/compat-table/es6/
