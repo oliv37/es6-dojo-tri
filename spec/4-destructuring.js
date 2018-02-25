@@ -25,9 +25,11 @@ describe('Destructuring ES6', function() {
     });
 
     it('destructuring object in function argument', function() {
+        const age = 20;
+        
         const obj = {
             name: 'Jim',
-            age: 20
+            age
         };
 
         // TODO : écrire une fonction toString pour faire passer le test suivant
@@ -66,7 +68,7 @@ describe('Destructuring ES6', function() {
 
     it('destructuring with default values (difficult)', function() {
         // TODO : compléter la fonction suivante pour faire passer le test
-        function getNameOfFirstPerson([/* ??? */]) {
+        function getNameOfFirstPerson(/* ??? */) {
             return name;
         }
 

@@ -9,7 +9,8 @@ describe('Arrow function', () => {
     it('function declaration', () => {
         
         const add2 = x => x + 2;
-        // TODO : compléter la ligne suivante en utilisant une arrow function
+        // TODO : compléter la ligne suivante en utilisant une arrow function 
+        // (isOdd renvoie true si le chiffre est imparair, false sinon)
         // const isOdd = ... 
         const transform = (arr, filterFn, mapFn) => arr.filter(filterFn).map(mapFn);
 

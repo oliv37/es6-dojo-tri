@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/karma start"
+    "test": "./node_modules/.bin/karma start",
+    "babelify": "npx babel ./module/es5.js --out-file ./module/es6.js --presets=env",
+    "webpack": "npx webpack",
+    "bundle": "node ./module/bundle/main.bundle.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -24,7 +28,8 @@
     "karma-html-reporter": "0.2.7",
     "karma-jasmine": "1.1.1",
     "karma-source-map-support": "^1.2.0",
-    "karma-sourcemap-loader": "^0.3.7"
+    "karma-sourcemap-loader": "^0.3.7",
+    "webpack": "^3.11.0"
   },
   "dependencies": {}
 }
