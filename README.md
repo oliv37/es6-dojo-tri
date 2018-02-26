@@ -425,3 +425,5 @@ http://mikelambert.me/es6
 http://es6-features.org
 
 https://kangax.github.io/compat-table/es6/
+
+https://jsfiddle.net/667vt5y7/34/
