@@ -159,7 +159,6 @@ const arr2 = [4, 5];
 const arr3 = [...arr1, 3, ...arr2];
 console.log(arr3); // [1, 2, 3, 4, 5]
 ```
-```
 ### Rest
 
 ```javascript
@@ -211,7 +210,7 @@ La valeur de `this' dépend du contexte d'exécution de la fonction
 var obj = {
   a: 2,
   func: function() {
-	  return this.a;
+    return this.a;
   }
 };
 
