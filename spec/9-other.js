@@ -59,7 +59,7 @@ describe('other', () => {
 
         it('average', () => {
             // TODO : compléter la fonction average qui accepte un nombre indéterminé de chiffre 
-            // en entrée et qui retourne la moyenne, la fonction retourne 0 s'il n'y a aucun paramètres
+            // en entrée et qui retourne la moyenne, la fonction retourne NaN s'il n'y a aucun paramètre
 
             expect(average()).toBeNaN();
             expect(average(4)).toBe(4);
@@ -69,7 +69,7 @@ describe('other', () => {
 
         it('count words', () => {
             // TODO : écrire une fonction countWords qui prend en paramètre n nombre indéterminé de chaînes de caractères
-            // la fonction doit retourner un objet qui contient le nombre de d'occurences de chaque mot.
+            // la fonction doit retourner un objet qui contient le nombre d'occurences de chaque mot.
 
             expect(countwords('Apple', 'Banana', 'Apple', 'Durian', 'Durian', 'Durian')).toEqual({
                 Apple: 2,
